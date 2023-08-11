@@ -32,6 +32,13 @@ export const TodoApp = () => {
     });
   };
 
+  const handleTodoComplete = (id) => {
+    dispatch({
+      type: "[TODO] todoComplete",
+      payload: id,
+    });
+  };
+
   return (
     <>
       <h1>
@@ -40,7 +47,11 @@ export const TodoApp = () => {
       <hr />
       <div className="row">
         <div className="col-6">
-          <TodoList todos={todos} onDeleteTodo={handleDeleteTodo} />
+          <TodoList
+            todos={todos}
+            onDeleteTodo={handleDeleteTodo}
+            todoComplete={handleTodoComplete}
+          />
         </div>
         <div className="col-6">
           <h4>Agregar TODO</h4>
